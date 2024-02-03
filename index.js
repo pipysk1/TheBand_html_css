@@ -83,5 +83,5 @@ const getDan = () => {
     const viewResult = document.getElementById('result')
     const tongSo = document.getElementById('sumNumber')
     tongSo.value = result.length
-    return viewResult.value = result
+    return viewResult.value = result.sort((a, b) => a - b)
 }
