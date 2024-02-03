@@ -58,23 +58,20 @@ const getTouchOne = () => {
     let result = getAllTouch(touchOne)
     const view1 = document.getElementById('view_touch_one')
     const view2 = document.getElementById('dan1')
-    view2.value = result
-    return view1.value = result
+    return view2.value = result
 }
 
 const getTouchTwo = () => {
     let result = getAllTouch(touchTwo)
     const view1 = document.getElementById('view_touch_two')
     const view2 = document.getElementById('dan2')
-    view2.value = result
-    return view1.value = result
+    return view2.value = result
 }
 const getTouchThree = () => {
     let result = getAllTouch(touchThree)
     const view1 = document.getElementById('view_touch_three')
     const view2 = document.getElementById('dan3')
-    view2.value = result
-    return view1.value = result
+    return view2.value = result
 }
 
 const getDan = () => {
