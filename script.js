@@ -19,36 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const STORAGE_KEY_TAP = 'currentTap';
     const STORAGE_KEY_TIME = 'currentTime';
 
-    // Fetch audio list from archive.org API
-    // async function fetchAudioList() {
-    //     try {
-    //         const response = await fetch('https://archive.org/metadata/BatDauTroThanhThuToaDanhDauCucDaoDeBinhTH');
-    //         const data = await response.json();
-
-    //         // Extract media files from response
-    //         const files = data.files.filter(file => file.format === 'VBR MP3');
-
-    //         tapSources = files.map(file => ({
-    //             url: `https://archive.org/download/BatDauTroThanhThuToaDanhDauCucDaoDeBinhTH/${file.name}`,
-    //             title: file.name
-    //         }));
-
-    //         // Populate the list
-    //         tapSources.forEach((tap, index) => {
-    //             const li = document.createElement('li');
-    //             li.textContent = tap.title;
-    //             console.log(tap.title);
-
-    //             li.addEventListener('click', () => loadTap(index));
-    //             tapList.appendChild(li);
-    //         });
-
-    //         // Load the saved tap and time
-    //         loadSavedTapAndTime();
-    //     } catch (error) {
-    //         console.error('Error fetching audio list:', error);
-    //     }
-    // }
+   
     async function fetchAudioList() {
         try {
             const response = await fetch('https://archive.org/metadata/BatDauTroThanhThuToaDanhDauCucDaoDeBinhTH');
@@ -118,6 +89,14 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem(STORAGE_KEY_TIME, audioPlayer.currentTime);
     });
 
+    // Tự động chuyển sang tập tiếp theo khi hết
+    audioPlayer.addEventListener('ended', () => {
+        if (currentTapIndex < tapSources.length - 1) {
+            currentTapIndex++;
+            loadTap(currentTapIndex);
+        }
+    });
+
     playPauseBtn.addEventListener('click', () => {
         if (audioPlayer.paused) {
             audioPlayer.play();
@@ -143,12 +122,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Điều chỉnh tốc độ phát
-// Điều chỉnh tốc độ phát
-speedControl.addEventListener('input', function() {
-    const newSpeed = speedControl.value;
-    audioPlayer.playbackRate = newSpeed;  // Thay đổi tốc độ phát
-    speedValue.textContent = newSpeed + 'x';  // Hiển thị giá trị tốc độ
-});
+    // Điều chỉnh tốc độ phát
+    speedControl.addEventListener('input', function() {
+        const newSpeed = speedControl.value;
+        audioPlayer.playbackRate = newSpeed;  // Thay đổi tốc độ phát
+        speedValue.textContent = newSpeed + 'x';  // Hiển thị giá trị tốc độ
+    });
 
 
     // Điều chỉnh âm lượng
