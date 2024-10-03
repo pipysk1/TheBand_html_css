@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>TypeScript Dom Manipulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            color: #0066cc;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #0066cc;
+        }
+
+        .touch_one {
+            max-width: auto;
+        }
+
+        .view_touch_one {
+            margin-left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <!-- Assume index.js is the compiled output of index.ts -->
+    <div class="container">
+        <h3>Chạm</h3>
+        <input type="input" class="touch_one" id="input_touch_one" />
+        <button onclick="getTouchOne()">Lấy hết</button>
+        <!-- <textarea id="view_touch_one" class="view_touch_one" name="view_touch_one" rows="4" cols="50"></textarea> -->
+        <h3>Chạm</h3>
+        <input type="input" class="touch_one" id="input_touch_two" />
+        <button onclick="getTouchTwo()">Lấy hết</button>
+        <!-- <textarea id="view_touch_two" name="view_touch_one" class="view_touch_one" rows="4" cols="50"></textarea> -->
+        <h3>Chạm</h3>
+        <input type="input" class="touch_one" id="input_touch_three" />
+        <button onclick="getTouchThree()">Lấy hết</button>
+        <!-- <textarea id="view_touch_three" name="view_touch_one" class="view_touch_one" rows="4" cols="50"></textarea> -->
+        <h2>Ghép dàn</h2>
+        <p>Dàn 1</p>
+        <textarea id="dan1" class="dan1" name="dan1" rows="4" cols="50"></textarea>
+        <p>Dàn 2</p>
+        <textarea id="dan2" class="dan2" name="dan2" rows="4" cols="50"></textarea>
+        <p>Dàn 3</p>
+        <textarea id="dan3" class="dan3" name="dan3" rows="4" cols="50"></textarea>
+
+        <button onclick="getDan()">Lấy dàn</button>
+        <p>Kết quả</p>
+        <input type="number" class="touch_one" id="sumNumber" disabled />
+        <textarea id="result" class="view_touch_one" name="view_touch_one" rows="4" cols="50"></textarea>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
